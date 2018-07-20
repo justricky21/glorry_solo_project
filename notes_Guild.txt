@@ -1,0 +1,184 @@
+The Guild:
+
+Adventuring party hiring web app.
+
+Target market: guild masters, instructors of prospective heroes, bands of adventurers.
+
+MVP:
+
+- 'Manage stock', i.e.: know the accurate roster of adventurers.
+
+As guild master,
+I want to be able to access my entire roster of adventurers,
+To keep my memoirs updated.
+
+As an academy instructor,
+I want to be able to know what trainees are still alive,
+So I can properly address my customers' needs.
+
+As the leader of a band of adventurers,
+I want to know what battle sisters and brothers are still active,
+So we can properly advertise our services.
+
+- Manage 'customers', i.e.: patrons
+
+As a guild master,
+I want to be able to have an organised list of my patrons,
+So I can keep an accurate record of my customer's profiles.
+
+As an academy instructor,
+I want to be able to know precisely who requires my services,
+To send my trainees into proper adventures.
+
+As the leader of a band of adventurers,
+I want to know who our customers are, accurately.
+To know where to send each member of our roster.
+
+- 'Process rentals', i.e.: send adventurers into expeditions.
+
+As a guild master,
+I want to be able to manage and send adventurers to expeditions,
+So I can meet the expectations of my patrons.
+
+As an academy instructor,
+I want to properly catalog what trainees I send to expeditions,
+So that I can order to record their achievements prior to graduation.
+
+As the leader of a band of adventurers,
+I want to be able to send my cohorts into battle,
+So we can vanquish evil.
+
+- View all 'data', i.e.: all the information about current adventurers:
+
+As a guild master,
+I want to be able to see all adventurers, and their current status.
+So I can keep track of who's still in my roster.
+
+As an academy instructor,
+I want to be able to keep track of who's in trainee status,
+So I can separate them from my non-trainee student database.
+
+As the leader of a band of adventurers,
+I want to know all the details of who is still in the band, and what they can do,
+So I can keep track of who's still available, who should be retired, and who we should mourn.
+
+
+
+Classes:
+Adventurer
++ ID (int)
++ Name (string)
++ Title (string)
++ Class (string)
++ Level (int)
++ Hero Status: Available, Currently Adventuring, KIA, Retired, R&R. (string, dropdown)
++ Current adventure (string, adventure, or none)
++ Background (string)
++ Time of Service (?, check how to measure time)
+- CRUD
+
+Patron
++ ID (int)
++ Name (string)
++ Background (string)
++ Time of service (?, check how to measure time)
+- CRUD
+
+Expedition
++ Adventurer ID (int)
++ Patron ID (int)
++ Title (string)
++ Price (string)
++ ETA (string)
++ Objective
+- CRUD
+
+Tables:
+Adventurers
++ Rows as per class properties
+
+Patrons
++ Rows as per class properties
+
+Expeditions
++ Rows as per class properties
+Patron ID is a FK to the PK ID of Patrons
+Adventurer ID is a FK to the PK ID of Adventurers
+
+Adventurer seed:
+
+- Inee Thank
+- 'Dangerous Bearcharger'
+- Warlock
+- 1
+- Unconscious, R&R
+- Lost Mines of Phandelver
+- This half elf originated from a dark place. Survived from a mortal wound. Very focused. Show promise.
+
+- Sonja
+- 'Red Sonja'
+- Barbarian
+- 9
+- Available
+- None
+- Highly powerful and skilled warrior. Possessor of outstanding luck, as she have survived many adventures with little armour.
+
+- Conan
+- 'The Cimmerian'
+- Barbarian
+- 12
+- Currently Adventuring
+- The Scarlet Citadel
+- Giant of a human. Owner of the artefact Atlantean Sword. Reserved person, but patrons are advised he's easily angered.
+
+- Unknown
+- The Black Knight
+- Fighter
+- 10
+- Unavailable, guarding a bridge
+- The Holy Grail, not contracted
+- Impervious, unstoppable. Doesn't give up on combat. CURRENTLY UNAVAILABLE due to a film contract.
+
+- Aragorn
+- 'Longshanks'
+- Ranger
+- 12
+- Currently adventuring
+- The Fellowship of the Ring
+- Speaks Elvish fluently. Ingenious, very skilled with both sword and bow. Incredibly knowledgeable of herbs and remedies. Works very well in a team.
+
+- Boromir
+- 'Captain of the White Tower'
+- Fighter
+- 7
+- KIA
+- None
+- Slain by an Uruk. Must contact Denethor of Gondor to warn him of his death. Another hero placed among the legends of history.
+
+Expeditions
+
+Lost Mines of Phandelver (Inee Thank)
+
+The Scarlet Citadel (Conan)
+
+The Holy Grail (The Black Knight)
+
+The Fellowship of the Ring (Aragorn)
+
+Patrons:
+
+Grundren the Dwarf (Lost Mines of Phandelver)
+- Dwarven Merchant of Neverwinter
+- Been a client for 2 months
+
+Amalrus of Ophir (The Red Citadel)
+- King of Aquinolia's neighbour Ophir.
+- Been a client for 1 week
+
+God (The Holy Grail)
+- The Alpha and the Omega. The Truth and the Way.
+- Been a client for 1 thousand years, as an experiment.
+
+Elrond (The Fellowship of the Ring)
+- Elven lord of Rivendell
+- Been a client for 800 years
