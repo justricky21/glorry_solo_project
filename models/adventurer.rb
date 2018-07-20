@@ -1,4 +1,5 @@
 class Adventurer
+  
   attr_reader :id, :name, :title, :class, :level, :status,
   :adventure, :background
   def initialize(option)
