@@ -85,6 +85,7 @@ Patron
 - CRUD
 
 Expedition
++ ID (int)
 + Adventurer ID (int)
 + Patron ID (int)
 + Title (string)
