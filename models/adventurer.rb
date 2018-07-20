@@ -29,5 +29,7 @@ class Adventurer
     @id = results.first()['id'].to_i
   end
 
+  
+
 
 end
