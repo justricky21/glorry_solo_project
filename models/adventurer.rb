@@ -1,6 +1,6 @@
 class Adventurer
-  attr_accessor :name, :title, :class, :level, :status, :adventure, :background
-  attr_reader :id
+  attr_reader :id, :name, :title, :class, :level, :status,
+  :adventure, :background
   def initialize(option)
     @id = option['id'].to_i
     @name = option['name']
