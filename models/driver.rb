@@ -1,7 +1,8 @@
 require_relative('../db/sql_runner')
 class Driver
 
-  attr_reader :id, :name, :lorry, :lorry_plate, :current_delivery
+  attr_reader :id
+  attr_accessor :name, :lorry, :lorry_plate, :current_delivery
   def initialize(option)
     @id = option['id'].to_i
     @name = option['name']

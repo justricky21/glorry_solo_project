@@ -1,7 +1,8 @@
 require_relative('../db/sql_runner')
 class Delivery
 
-  attr_reader :id, :customer_id, :driver_id, :contents
+  attr_reader :id
+  attr_accessor :customer_id, :driver_id, :contents
   def initialize(option)
     @id = option['id'].to_i
     @customer_id = option['customer_id']
