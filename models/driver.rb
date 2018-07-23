@@ -8,21 +8,30 @@ class Driver
     @name = option['name']
     @lorry = option['lorry']
     @lorry_plate = option['lorry_plate']
+    puts option
+    @archived = option['archived'] == 't' ? true : false
     end
 
   def save()
     sql = "INSERT INTO drivers
     (
-      name, lorry, lorry_plate
+      name, lorry, lorry_plate, archived
     )
     VALUES
     (
-      $1, $2, $3
+      $1, $2, $3, $4
     )
     RETURNING id;"
-    values = [@name, @lorry, @lorry_plate]
+    values = [@name, @lorry, @lorry_plate, @archived]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
+  end
+
+  def deliveries
+    sql = "SELECT de.* FROM deliveries de WHERE de.driver_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |delivery| Delivery.new(delivery) }
   end
 
   def customers
@@ -51,13 +60,13 @@ class Driver
     sql = "UPDATE drivers
     SET
     (
-      name, lorry, lorry_plate
+      name, lorry, lorry_plate, archived
     ) =
     (
-      $1, $2, $3
+      $1, $2, $3, $4
     )
-    WHERE id = $4"
-    values = [@name, @lorry, @lorry_plate, @id]
+    WHERE id = $5"
+    values = [@name, @lorry, @lorry_plate, @archived, @id]
     SqlRunner.run( sql, values )
   end
 

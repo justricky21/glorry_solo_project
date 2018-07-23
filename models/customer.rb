@@ -10,6 +10,8 @@ class Customer
     @phone_number = option['phone_number'].to_i
     @address = option['address']
     @email = option['email']
+    puts option
+    @archived = option['archived'] == 't' ? true : false
   end
 
   def save()

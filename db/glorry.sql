@@ -7,7 +7,8 @@ CREATE TABLE drivers
   id SERIAL8 PRIMARY KEY,
   name VARCHAR(255),
   lorry VARCHAR(255),
-  lorry_plate VARCHAR(255)
+  lorry_plate VARCHAR(255),
+  archived BOOLEAN
 );
 
 CREATE TABLE customers
@@ -17,7 +18,8 @@ CREATE TABLE customers
   contact_name VARCHAR(255),
   email VARCHAR(255),
   phone_number INT,
-  address VARCHAR(255)
+  address VARCHAR(255),
+  archived BOOLEAN
 );
 
 CREATE TABLE deliveries
