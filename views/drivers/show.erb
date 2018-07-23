@@ -2,6 +2,8 @@
 <h2>Lorry model: <%=@driver.lorry%></h2>
 <h4>Licence plate: <%=@driver.lorry_plate%></h4>
 
+<p><%=@driver.is_archived%></p>
+
 <form class="" action="/drivers/<%=@driver.id%>/edit" method="get">
   <input type="submit" value="EDIT">
 </form>

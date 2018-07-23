@@ -93,4 +93,10 @@ class Customer
     SqlRunner.run( sql )
   end
 
+  def is_archived
+    if @archived
+      return 'This costumer no longer has dealings with us'
+    end
+  end
+
 end

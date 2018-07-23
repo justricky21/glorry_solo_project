@@ -89,4 +89,10 @@ class Driver
     SqlRunner.run( sql )
   end
 
+  def is_archived
+    if @archived
+      return 'This driver is no longer with us'
+    end
+  end
+
 end

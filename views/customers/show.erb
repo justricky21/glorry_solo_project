@@ -4,6 +4,8 @@
 <h4>E-mail: <%=@customer.email%></h4>
 <h4>Phone Number: 0<%=@customer.phone_number%></h4>
 
+<p><%=@customer.is_archived%></p>
+
 <form class="" action="/customers/<%=@customer.id%>/edit" method="get">
   <input type="submit" value="EDIT">
 </form>
