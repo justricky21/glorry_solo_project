@@ -49,3 +49,18 @@ get '/drivers/:id/delete' do
   @driver.delete
   redirect to '/drivers/'
 end
+
+# archive
+get '/drivers/:id/archive' do
+  @driver = Driver.find(params['id'])
+  if @driver.deliveries[0] == nil
+    @driver.archived = 't'
+    @driver.update
+    erb (:'drivers/archive')
+  else
+    @driver.archived = 't'
+    @driver.update
+    redirect to '/drivers/'
+  end
+
+end
