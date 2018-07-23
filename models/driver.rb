@@ -42,10 +42,16 @@ class Driver
     return results.map { |customer| Customer.new(customer) }
   end
 
+  def self.all_but_archived
+    sql = "SELECT * FROM drivers WHERE archived = false"
+    results = SqlRunner.run( sql )
+    return results.map { |driver| Driver.new( driver ) }
+  end
+
   def self.all()
     sql = "SELECT * FROM drivers"
     results = SqlRunner.run( sql )
-    return results.map { |biting| Driver.new( biting ) }
+    return results.map { |driver| Driver.new( driver ) }
   end
 
   def self.find( id )

@@ -1,0 +1,23 @@
+<form class="" action="/deliveries" method="post">
+
+  <label for="customer-select">Select Customer:</label>
+  <select name="customer_id" id="customer-select">
+    <% for customer in @customers %>
+    <option value="<%=customer.id%>"> <%=customer.company_name%> </option>
+      <%end%>
+  </select>
+
+  <label for="driver-select">Select Driver:</label>
+  <select name="driver_id" id="driver-select">
+    <% for driver in @drivers %>
+    <option value="<%=driver.id%>"> <%=driver.name%> </option>
+      <%end%>
+  </select>
+
+  <label for="contents">Contents:</label>
+  <input id="contents" type="text" name="contents" />
+  <br/>
+
+  <input type="submit" value="Add delivery"/>
+
+</form>
