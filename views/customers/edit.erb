@@ -1,0 +1,24 @@
+<form class="" action="/customers/<%=@customer.id%>" method="post">
+  <label for="company-name">Company name:</label>
+  <input id="company-name" type="text" name="company_name"
+  value="<%=@customer.company_name%>" />
+  <br/>
+
+  <label for="contact-name">Contact name:</label>
+  <input id="contact-name" type="text" name="contact_name"
+  value="<%=@customer.contact_name%>"/>
+  <br/>
+
+  <label for="email">E-mail address:</label>
+  <input id="email" type="email" name="email"
+  value="<%=@customer.email%>"/>
+  <br/>
+
+  <label for="phone-number">Phone number: 0</label>
+  <input id="phone-number" type="number" name="phone_number"
+  value="<%=@customer.phone_number%>"/>
+  <br/>
+
+  <input type="submit" value="Confirm changes"/>
+
+</form>

@@ -2,7 +2,8 @@ require_relative('../db/sql_runner')
 class Customer
 
   attr_reader :id
-  attr_accessor :contact_name, :company_name, :phone_number, :address, :email
+  attr_accessor :contact_name, :company_name, :phone_number, :address, :email,
+  :archived
   def initialize(option)
     @id = option['id'].to_i
     @company_name = option['company_name']
@@ -10,21 +11,21 @@ class Customer
     @phone_number = option['phone_number'].to_i
     @address = option['address']
     @email = option['email']
-    puts option
     @archived = option['archived'] == 't' ? true : false
   end
 
   def save()
     sql = "INSERT INTO customers
     (
-      company_name, contact_name, phone_number, address, email
+      company_name, contact_name, phone_number, address, email, archived
     )
     VALUES
     (
-      $1, $2, $3, $4, $5
+      $1, $2, $3, $4, $5, $6
     )
     RETURNING id;"
-    values = [@company_name, @contact_name, @phone_number, @address, @email]
+    values = [@company_name, @contact_name, @phone_number, @address, @email,
+    @archived]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -55,13 +56,14 @@ class Customer
     sql = "UPDATE customers
     SET
     (
-      company_name, contact_name, phone_number, address, email
+      company_name, contact_name, phone_number, address, email, archived
     ) =
     (
-      $1, $2, $3, $4, $5
+      $1, $2, $3, $4, $5, $6
     )
-    WHERE id = $6"
-    values = [@company_name, @contact_name, @phone_number, @address, @email, @id]
+    WHERE id = $7"
+    values = [@company_name, @contact_name, @phone_number, @address, @email,
+    @archived, @id]
     SqlRunner.run( sql, values )
   end
 

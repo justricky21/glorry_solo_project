@@ -2,13 +2,13 @@ require_relative('../db/sql_runner')
 class Driver
 
   attr_reader :id
-  attr_accessor :name, :lorry, :lorry_plate, :current_delivery
+  attr_accessor :name, :lorry, :lorry_plate, :current_delivery,
+  :archived
   def initialize(option)
     @id = option['id'].to_i
     @name = option['name']
     @lorry = option['lorry']
     @lorry_plate = option['lorry_plate']
-    puts option
     @archived = option['archived'] == 't' ? true : false
     end
 

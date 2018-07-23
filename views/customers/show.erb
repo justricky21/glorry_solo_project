@@ -1,0 +1,13 @@
+<h1><%=@customer.contact_name%></h1>
+<h2>Contact: <%=@customer.contact_name%></h2>
+<h4>Address: <%=@customer.address%></h4>
+<h4>E-mail: <%=@customer.email%></h4>
+<h4>Phone Number: 0<%=@customer.phone_number%></h4>
+
+<form class="" action="/customers/<%=@customer.id%>/edit" method="get">
+  <input type="submit" value="EDIT">
+</form>
+<form class="" action="/customers/<%=@customer.id%>/delete" method="get">
+  <input type="submit" value="DELETE">
+</form>
+<h4><a href="/customers">Go Back</a>

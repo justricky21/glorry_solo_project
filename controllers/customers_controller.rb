@@ -2,3 +2,50 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
 require_relative( '../models/customer.rb' )
+
+# restful routes
+# index
+get '/customers/?' do
+  @customers = Customer.all
+  erb(:'customers/index')
+end
+
+# new
+get '/customers/new' do
+  erb(:'customers/new')
+end
+
+# create
+post '/customers/?' do
+  p params
+  @customer = Customer.new(params)
+  @customer.save()
+  erb(:'customers/create')
+end
+
+# show
+get '/customers/:id' do
+  @customer = Customer.find(params['id'].to_i)
+  erb(:'customers/show')
+end
+
+# edit
+get '/customers/:id/edit' do
+  @customer = Customer.find(params['id'])
+  erb(:'customers/edit')
+end
+
+# update
+post '/customers/:id' do
+  p params
+  customer = Customer.new(params)
+  customer.update
+  redirect to '/customers/' + params['id']
+end
+
+# destroy
+get '/customers/:id/delete' do
+  @customer = Customer.find(params['id'])
+  @customer.delete
+  redirect to '/customers/'
+end
