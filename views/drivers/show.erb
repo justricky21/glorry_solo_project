@@ -1,0 +1,11 @@
+<h1><%=@driver.name%></h1>
+<h2>Lorry model: <%=@driver.lorry%></h2>
+<h4>Licence plate: <%=@driver.lorry_plate%></h4>
+
+<form class="" action="/drivers/<%=@driver.id%>/edit" method="get">
+  <input type="submit" value="EDIT">
+</form>
+<form class="" action="/drivers/<%=@driver.id%>/delete" method="get">
+  <input type="submit" value="DELETE">
+</form>
+<h4><a href="/drivers">Go Back</a>

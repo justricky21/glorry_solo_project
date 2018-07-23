@@ -1,3 +1,7 @@
 require_relative('../models/driver')
 require_relative('../models/delivery')
 require_relative('../models/customer')
+
+driver = Driver.find(10)
+
+p driver

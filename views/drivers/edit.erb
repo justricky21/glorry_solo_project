@@ -1,0 +1,16 @@
+<form class="" action="/drivers/<%=@driver.id%>" method="post">
+  <label for="name">Full Name:</label>
+  <input id="name" type="text" name="name" value="<%=@driver.name%>" />
+  <br/>
+
+  <label for="lorry">Lorry model:</label>
+  <input id="lorry" type="text" name="lorry" value="<%=@driver.lorry%>" />
+  <br/>
+
+  <label for="lorry-plate">Lorry license plate:</label>
+  <input id="lorry-plate" type="text" name="lorry_plate" value="<%=@driver.lorry_plate%>" />
+  <br/>
+
+  <input type="submit" value="Confirm changes"/>
+
+</form>
