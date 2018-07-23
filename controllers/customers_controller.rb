@@ -49,3 +49,17 @@ get '/customers/:id/delete' do
   @customer.delete
   redirect to '/customers/'
 end
+
+# archive
+get '/customers/:id/archive' do
+  @customer = Customer.find(params['id'])
+  if @customer.deliveries[0] == nil
+    @customer.archived = 't'
+    @customer.update
+    erb (:'customers/archive')
+  else
+    @customer.archived = 't'
+    @customer.update
+    redirect to '/customers/'
+  end
+end

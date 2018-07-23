@@ -62,5 +62,4 @@ get '/drivers/:id/archive' do
     @driver.update
     redirect to '/drivers/'
   end
-
 end

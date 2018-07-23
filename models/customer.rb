@@ -30,6 +30,13 @@ class Customer
     @id = results.first()['id'].to_i
   end
 
+  def deliveries
+    sql = "SELECT de.* FROM deliveries de WHERE de.customer_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |delivery| Delivery.new(delivery) }
+  end
+
   def drivers
     sql = "SELECT c.* FROM customers c INNER JOIN deliveries de ON
     de.customer_id = c.id WHERE de.driver_id = $1;"

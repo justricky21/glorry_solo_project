@@ -1,0 +1,8 @@
+<p>This customer does not have any deliveries. Would you like to delete them?</p>
+
+<form class="" action="/customers/<%=@customer.id%>/delete" method="get">
+  <input type="submit" value="YES">
+</form>
+<form class="" action="/customers/<%=@customer.id%>" method="get">
+  <input type="submit" value="NO">
+</form>
