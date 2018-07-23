@@ -25,4 +25,51 @@ class Delivery
     @id = results.first()['id'].to_i
   end
 
+  def self.all()
+    sql = "SELECT * FROM deliveries"
+    results = SqlRunner.run( sql )
+    return results.map { |biting| Delivery.new( biting ) }
+  end
+
+  def self.find( id )
+    sql = "SELECT * FROM deliveries
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run( sql, values )
+    return Delivery.new( results.first )
+  end
+
+  def update()
+    sql = "UPDATE deliveries
+    SET
+    (
+      customer_id, driver_id, contents
+    ) =
+    (
+      $1, $2, $3
+    )
+    WHERE id = $4"
+    values = [@customer_id, @driver_id, @contents, @id]
+    SqlRunner.run( sql, values )
+  end
+
+  def delete()
+    sql = "DELETE FROM deliveries
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run( sql, values )
+  end
+
+  def self.delete(id)
+    sql = "DELETE FROM deliveries
+    WHERE id = $1"
+    values = [id]
+    SqlRunner.run( sql, values )
+  end
+
+  def self.delete_all
+    sql = "DELETE FROM deliveries"
+    SqlRunner.run( sql )
+  end
+
 end

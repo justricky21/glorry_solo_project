@@ -25,7 +25,51 @@ class Driver
     @id = results.first()['id'].to_i
   end
 
+  def self.all()
+    sql = "SELECT * FROM drivers"
+    results = SqlRunner.run( sql )
+    return results.map { |biting| Driver.new( biting ) }
+  end
 
+  def self.find( id )
+    sql = "SELECT * FROM drivers
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run( sql, values )
+    return Driver.new( results.first )
+  end
 
+  def update()
+    sql = "UPDATE drivers
+    SET
+    (
+      name, lorry, lorry_plate
+    ) =
+    (
+      $1, $2, $3
+    )
+    WHERE id = $4"
+    values = [@name, @lorry, @lorry_plate, @id]
+    SqlRunner.run( sql, values )
+  end
+
+  def delete()
+    sql = "DELETE FROM drivers
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run( sql, values )
+  end
+
+  def self.delete(id)
+    sql = "DELETE FROM drivers
+    WHERE id = $1"
+    values = [id]
+    SqlRunner.run( sql, values )
+  end
+
+  def self.delete_all
+    sql = "DELETE FROM drivers"
+    SqlRunner.run( sql )
+  end
 
 end
