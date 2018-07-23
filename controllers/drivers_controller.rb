@@ -2,7 +2,7 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
 require_relative( '../models/driver.rb' )
-
+also_reload 'models/*'
 # restful routes
 # index
 get '/drivers/?' do

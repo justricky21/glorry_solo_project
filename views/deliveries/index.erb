@@ -1,0 +1,25 @@
+<h1>Deliveries</h1>
+
+<table>
+  <%for delivery in @deliveries%>
+  <table>
+    <tr>
+      <th>Content</th>
+      <th></th>
+      <th>Customer</th>
+      <th></th>
+      <th>Driver</th>
+    </tr>
+    <tr>
+      <td><%=delivery.contents%></td>
+      <td>|</td>
+      <td><a href="customers/<%=delivery.customer.id%>">
+      <%=delivery.customer.company_name%></a></td>
+      <td>|</td>
+      <td><td><a href="drivers/<%=delivery.driver.id%>">
+      <%=delivery.driver.name%></a></td></td>
+    </tr>
+    </table>
+    <%end%>
+    <a href='/deliveries/new'>Add delivery</a></li>
+  </table>
