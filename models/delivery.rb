@@ -25,6 +25,22 @@ class Delivery
     @id = results.first()['id'].to_i
   end
 
+  def driver
+    sql = "SELECT * FROM drivers
+    WHERE id = $1"
+    values = [@driver_id]
+    results = SqlRunner.run( sql, values )
+    return Driver.new( results.first )
+  end
+
+  def customer
+    sql = "SELECT * FROM customers
+    WHERE id = $1"
+    values = [@customer_id]
+    results = SqlRunner.run( sql, values )
+    return Customer.new( results.first )
+  end
+
   def self.all()
     sql = "SELECT * FROM deliveries"
     results = SqlRunner.run( sql )

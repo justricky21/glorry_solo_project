@@ -25,6 +25,14 @@ class Driver
     @id = results.first()['id'].to_i
   end
 
+  def customers
+    sql = "SELECT c.* FROM customers c INNER JOIN deliveries de ON
+    de.customer_id = c.id WHERE de.driver_id = $1;"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |customer| Customer.new(customer) }
+  end
+
   def self.all()
     sql = "SELECT * FROM drivers"
     results = SqlRunner.run( sql )
