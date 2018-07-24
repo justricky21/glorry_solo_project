@@ -9,6 +9,8 @@
       <th>Customer</th>
       <th></th>
       <th>Driver</th>
+      <th></th>
+      <th>Voucher</th>
     </tr>
     <tr>
       <td><%=delivery.contents%></td>
@@ -18,6 +20,15 @@
       <td>|</td>
       <td><td><a href="drivers/<%=delivery.driver.id%>">
       <%=delivery.driver.name%></a></td></td>
+      <td>|</td>
+      <td><%=delivery.id%></td>
+      <td><form class="" action="/deliveries/<%=delivery.id%>/edit" method="get">
+        <input type="submit" value="EDIT">
+      </form></td>
+      <td>|</td>
+      <td><form class="" action="/deliveries/<%=delivery.id%>/delete" method="get">
+        <input type="submit" value="DELETE">
+      </form></td>
     </tr>
     </table>
     <%end%>

@@ -1,16 +1,22 @@
-<form class="" action="/deliveries" method="post">
+<form class="" action="/deliveries/<%=@delivery.id%>" method="post">
 
   <label for="customer-select">Select Customer:</label>
   <select name="customer_id" id="customer-select">
     <% for customer in @customers %>
-    <option value="<%=customer.id%>"> <%=customer.company_name%> </option>
+    <option value="<%=customer.id%>"<%= 'selected' if
+    @delivery.customer.company_name ==
+    customer.company_name%>>
+    <%=customer.company_name%>
+    </option>
       <%end%>
   </select>
 
   <label for="driver-select">Select Driver:</label>
   <select name="driver_id" id="driver-select">
     <% for driver in @drivers %>
-    <option value="<%=driver.id%>"> <%=driver.name%> </option>
+    <option value="<%=driver.id%>" <%= 'selected' if
+    @delivery.driver.name ==
+    driver.name%>> <%=driver.name%> </option>
       <%end%>
   </select>
 
@@ -18,7 +24,7 @@
   <input id="contents" type="text" name="contents" />
   <br/>
 
-  <input type="submit" value="Add delivery"/>
+  <input type="submit" value="Confirm changes"/>
 
 </form>
 <h4><a href="/deliveries">Go Back</a>

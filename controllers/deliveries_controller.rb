@@ -31,6 +31,8 @@ end
 # edit
 get '/deliveries/:id/edit' do
   @delivery = Delivery.find(params['id'])
+  @customers = Customer.all
+  @drivers = Driver.all
   erb(:'deliveries/edit')
 end
 
