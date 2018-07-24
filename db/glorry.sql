@@ -27,5 +27,6 @@ CREATE TABLE deliveries
   id SERIAL8 PRIMARY KEY,
   driver_id INT8 REFERENCES drivers(id),
   customer_id INT8 REFERENCES customers(id),
-  contents VARCHAR(255)
+  contents VARCHAR(255),
+  time DATE
 );

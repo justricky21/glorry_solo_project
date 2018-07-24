@@ -45,16 +45,20 @@ customer3 = Customer.new('company_name' => 'ASDA Inc.',
 
 delivery1 = Delivery.new('customer_id' => 1,
   'driver_id' => 1,
-  'contents' => 'Some cotton balls'
+  'contents' => 'Some cotton balls',
+  'time' => Date.parse('2001-02-03')
 )
 
 delivery2 = Delivery.new('customer_id' => 2,
 'driver_id' => 2,
-'contents' => 'One ton of rubber ducks')
-
+'contents' => 'One ton of rubber ducks',
+'time' => Date.parse('2011-02-03')
+)
 delivery3 = Delivery.new('customer_id' => 3,
 'driver_id' => 3,
-'contents' => 'Two tons of rubber ducks')
+'contents' => 'Two tons of rubber ducks',
+'time' => Date.parse('2014-02-03')
+)
 
 driver1.save
 driver2.save
@@ -62,6 +66,6 @@ driver3.save
 customer1.save
 customer2.save
 customer3.save
-delivery1.save
-delivery2.save
-delivery3.save
+delivery1.save_for_seed
+delivery2.save_for_seed
+delivery3.save_for_seed

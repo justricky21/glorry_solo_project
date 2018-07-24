@@ -3,25 +3,42 @@ require('date')
 class Delivery
 
   attr_reader :id
-  attr_accessor :customer_id, :driver_id, :contents
+  attr_accessor :customer_id, :driver_id, :contents, :time
   def initialize(option)
     @id = option['id'].to_i
     @customer_id = option['customer_id']
     @driver_id = option['driver_id']
     @contents = option['contents']
+    @time = option['time']
   end
 
   def save()
+    @time = Date.today
     sql = "INSERT INTO deliveries
     (
-      customer_id, driver_id, contents
+      customer_id, driver_id, contents, time
     )
     VALUES
     (
-      $1, $2, $3
+      $1, $2, $3, $4
     )
     RETURNING id;"
-    values = [@customer_id, @driver_id, @contents]
+    values = [@customer_id, @driver_id, @contents, @time]
+    results = SqlRunner.run(sql, values)
+    @id = results.first()['id'].to_i
+  end
+
+  def save_for_seed()
+    sql = "INSERT INTO deliveries
+    (
+      customer_id, driver_id, contents, time
+    )
+    VALUES
+    (
+      $1, $2, $3, $4
+    )
+    RETURNING id;"
+    values = [@customer_id, @driver_id, @contents, @time]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -46,6 +63,38 @@ class Delivery
     sql = "SELECT * FROM deliveries"
     results = SqlRunner.run( sql )
     return results.map { |biting| Delivery.new( biting ) }
+  end
+
+  def self.unique_years
+    dates_string = all.map { |delivery| delivery.time }
+    dates = []
+    for date in dates_string
+      dates.push(Date.parse(date).year)
+    end
+    return dates.uniq
+  end
+
+  def self.year_all(chosen_year)
+    deliveries = Delivery.all()
+    year_deliveries = []
+    for delivery in deliveries
+      if Date.parse(delivery.time).year == chosen_year
+        year_deliveries.push(delivery)
+      end
+    end
+    return year_deliveries
+  end
+
+
+  def self.month_all(chosen_month, chosen_year)
+    all_deliveries = Delivery.all()
+    month_deliveries = []
+    for delivery in all_deliveries
+      if Date.parse(delivery.time).mon == chosen_month && Date.parse(delivery.time).year == chosen_year.to_i
+        month_deliveries.push(delivery)
+      end
+    end
+    return month_deliveries
   end
 
   def self.find( id )
