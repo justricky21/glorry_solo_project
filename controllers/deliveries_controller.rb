@@ -37,16 +37,16 @@ get '/deliveries/:id/edit' do
 end
 
 # update
-post '/deliveries/:id' do
+post '/deliveries/:id/edit' do
   p params
   delivery = Delivery.new(params)
   delivery.update
-  redirect to '/deliveries/' + params['id']
+  redirect to '/deliveries'
 end
 
 # destroy
 get '/deliveries/:id/delete' do
   @delivery = Delivery.find(params['id'])
   @delivery.delete
-  redirect to '/deliveries/'
+  redirect to '/deliveries'
 end
