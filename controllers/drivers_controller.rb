@@ -53,7 +53,7 @@ end
 #  confirm archiving
 get '/drivers/:id/confirmation' do
   @driver = Driver.find(params['id'])
-  erb(:'drivers/are_you_sure')
+  erb(:'drivers/confirmation')
 end
 
 # archive

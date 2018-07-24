@@ -50,6 +50,12 @@ get '/customers/:id/delete' do
   redirect to '/customers/'
 end
 
+#  confirm archiving
+get '/customers/:id/confirmation' do
+  @customer = Customer.find(params['id'])
+  erb(:'customers/confirmation')
+end
+
 # archive
 get '/customers/:id/archive' do
   @customer = Customer.find(params['id'])
@@ -61,5 +67,6 @@ get '/customers/:id/archive' do
     @customer.archived = 't'
     @customer.update
     redirect to '/customers/'
+    redirect to '/customers/' + params['id']
   end
 end

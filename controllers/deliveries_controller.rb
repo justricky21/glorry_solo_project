@@ -58,6 +58,12 @@ post '/deliveries/:id/edit' do
   redirect to '/deliveries'
 end
 
+# confirmation
+get '/deliveries/:id/confirmation' do
+  @delivery = Delivery.new(params['id'])
+  erb(:'deliveries/confirmation')
+end
+
 # destroy
 get '/deliveries/:id/delete' do
   @delivery = Delivery.find(params['id'])
