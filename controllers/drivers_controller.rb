@@ -50,6 +50,12 @@ get '/drivers/:id/delete' do
   redirect to '/drivers/'
 end
 
+#  confirm archiving
+get '/drivers/:id/confirmation' do
+  @driver = Driver.find(params['id'])
+  erb(:'drivers/are_you_sure')
+end
+
 # archive
 get '/drivers/:id/archive' do
   @driver = Driver.find(params['id'])
@@ -60,6 +66,6 @@ get '/drivers/:id/archive' do
   else
     @driver.archived = 't'
     @driver.update
-    redirect to '/drivers/'
+    redirect to '/drivers/' + params['id']
   end
 end

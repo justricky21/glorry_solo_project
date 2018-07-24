@@ -13,16 +13,18 @@ get '/deliveries' do
   erb(:'deliveries/index')
 end
 
-# index by month
-get '/deliveries/filter/:year/:month' do
-  @deliveries = Delivery.month_all(params['month'].to_i,params['year'].to_i)
-  erb(:'deliveries/index_by_month')
-end
-
 # index by year
 get '/deliveries/filter/:year' do
+  @year = params['year'].to_i
   @deliveries = Delivery.year_all(params['year'].to_i)
   erb(:'deliveries/index_by_year')
+end
+
+# index by month
+get '/deliveries/filter/:year/:month' do
+  @year = params['year'].to_i
+  @deliveries = Delivery.month_all(params['month'].to_i,params['year'].to_i)
+  erb(:'deliveries/index_by_month')
 end
 
 # new
