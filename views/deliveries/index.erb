@@ -1,5 +1,7 @@
 <h1>Deliveries</h1>
 
+<a href='/deliveries/new'>Add delivery</a></li>
+
 <h2>Filter by year:</h2>
 
 <table>
@@ -8,8 +10,17 @@
     <th><a href='/deliveries/filter/<%=year%>'><%=year%></th>
   <%end%>
 </table>
-</br>
 
+<form method="POST" action="/deliveries">
+<div class="search">
+  <p>Search for...</p>
+   <input id="query" name="query" type="text" placeholder="Search...">
+  <button type="submit">
+    <i class="fa fa-search">...</i>
+  </button>
+</div>
+</form>
+<br/>
 <table>
   <tr>
     <th>Content</th>
@@ -20,6 +31,7 @@
     <th></th>
     <th></th>
   </tr>
+<div class="results">
   <%for delivery in @deliveries%>
   <table>
 
@@ -39,5 +51,6 @@
     </tr>
     </table>
     <%end%>
-    <a href='/deliveries/new'>Add delivery</a></li>
+</div>
+
   </table>

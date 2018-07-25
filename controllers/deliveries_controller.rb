@@ -13,6 +13,11 @@ get '/deliveries' do
   erb(:'deliveries/index')
 end
 
+post '/deliveries' do
+  @deliveries = Delivery.search(params['query'])
+    erb ( :'deliveries/index' )
+end
+
 # index by year
 get '/deliveries/filter/:year' do
   @year = params['year'].to_i

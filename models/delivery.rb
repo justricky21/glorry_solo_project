@@ -62,7 +62,7 @@ class Delivery
   def self.all()
     sql = "SELECT * FROM deliveries"
     results = SqlRunner.run( sql )
-    return results.map { |biting| Delivery.new( biting ) }
+    return results.map { |delivery| Delivery.new( delivery ) }
   end
 
   def self.unique_years
@@ -110,32 +110,40 @@ class Delivery
     SET
     (
       customer_id, driver_id, contents
-    ) =
-    (
-      $1, $2, $3
-    )
-    WHERE id = $4"
-    values = [@customer_id, @driver_id, @contents, @id]
-    SqlRunner.run( sql, values )
-  end
+      ) =
+      (
+        $1, $2, $3
+      )
+      WHERE id = $4"
+      values = [@customer_id, @driver_id, @contents, @id]
+      SqlRunner.run( sql, values )
+    end
 
-  def delete()
-    sql = "DELETE FROM deliveries
-    WHERE id = $1"
-    values = [@id]
-    SqlRunner.run( sql, values )
-  end
+    def delete()
+      sql = "DELETE FROM deliveries
+      WHERE id = $1"
+      values = [@id]
+      SqlRunner.run( sql, values )
+    end
 
-  def self.delete(id)
-    sql = "DELETE FROM deliveries
-    WHERE id = $1"
-    values = [id]
-    SqlRunner.run( sql, values )
-  end
+    def self.delete(id)
+      sql = "DELETE FROM deliveries
+      WHERE id = $1"
+      values = [id]
+      SqlRunner.run( sql, values )
+    end
 
-  def self.delete_all
-    sql = "DELETE FROM deliveries"
-    SqlRunner.run( sql )
-  end
+    def self.delete_all
+      sql = "DELETE FROM deliveries"
+      SqlRunner.run( sql )
+    end
 
-end
+    def self.search(query)
+      sql = "SELECT * FROM deliveries
+      WHERE lower(deliveries.contents) LIKE $1"
+      values = ['%'+query.downcase+'%']
+      results = SqlRunner.run( sql, values )
+      return results.map { |delivery| Delivery.new( delivery ) }
+    end
+
+  end
