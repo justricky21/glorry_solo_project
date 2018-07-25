@@ -60,7 +60,7 @@ end
 
 # confirmation
 get '/deliveries/:id/confirmation' do
-  @delivery = Delivery.new(params['id'])
+  @delivery = Delivery.find(params['id'])
   erb(:'deliveries/confirmation')
 end
 

@@ -2,9 +2,9 @@ require_relative('../models/driver')
 require_relative('../models/delivery')
 require_relative('../models/customer')
 
-Delivery.delete_all()
-Driver.delete_all()
-Customer.delete_all()
+# Delivery.delete_all()
+# Driver.delete_all()
+# Customer.delete_all()
 
 driver1 = Driver.new('name' => 'Ben Thomas',
 'lorry' => 'Fiat Ducato',

@@ -8,38 +8,32 @@
     <th><a href='/deliveries/filter/<%=year%>'><%=year%></th>
   <%end%>
 </table>
+</br>
 
 <table>
+  <tr>
+    <th>Content</th>
+    <th>Customer</th>
+    <th>Driver</th>
+    <th>Voucher</th>
+    <th>Issue Date</th>
+    <th></th>
+    <th></th>
+  </tr>
   <%for delivery in @deliveries%>
   <table>
-    <tr>
-      <th>Content</th>
-      <th></th>
-      <th>Customer</th>
-      <th></th>
-      <th>Driver</th>
-      <th></th>
-      <th>Voucher</th>
-      <th></th>
-      <th>Issue Date</th>
-    </tr>
+
     <tr>
       <td><%=delivery.contents%></td>
-      <td>|</td>
       <td><a href="customers/<%=delivery.customer.id%>">
       <%=delivery.customer.company_name%></a></td>
-      <td>|</td>
-      <td><td><a href="drivers/<%=delivery.driver.id%>">
-      <%=delivery.driver.name%></a></td></td>
-      <td>|</td>
+      <td><a href="drivers/<%=delivery.driver.id%>">
+      <%=delivery.driver.name%></a></td>
       <td><%=delivery.id%></td>
-      <td>|</td>
       <td><%=delivery.time%></td>
       <td><form class="" action="/deliveries/<%=delivery.id%>/edit" method="get">
-        <input type="submit" value="EDIT">
-      </form></td>
-      <td>|</td>
-      <td><form class="" action="/deliveries/<%=delivery.id%>/delete" method="get">
+        <input type="submit" value="EDIT"></td>
+      <td><form class="" action="/deliveries/<%=delivery.id%>/confirmation" method="get">
         <input type="submit" value="DELETE">
       </form></td>
     </tr>

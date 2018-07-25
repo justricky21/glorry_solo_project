@@ -24,37 +24,30 @@
   <th><a href="/deliveries/filter/<%=@year%>/11">Nov</a></th>
   <th><a href="/deliveries/filter/<%=@year%>/12">Dec</a></th>
 </table>
-
+<h4><a href="/deliveries/filter/<%=@year%>">Go Back</a>
+<br/>
+<br/>
 <table>
   <%for delivery in @deliveries%>
   <table>
     <tr>
       <th>Content</th>
-      <th></th>
       <th>Customer</th>
-      <th></th>
       <th>Driver</th>
-      <th></th>
       <th>Voucher</th>
-      <th></th>
       <th>Issue Date</th>
     </tr>
     <tr>
       <td><%=delivery.contents%></td>
-      <td>|</td>
       <td><a href="customers/<%=delivery.customer.id%>">
       <%=delivery.customer.company_name%></a></td>
-      <td>|</td>
-      <td><td><a href="drivers/<%=delivery.driver.id%>">
-      <%=delivery.driver.name%></a></td></td>
-      <td>|</td>
+      <td><a href="drivers/<%=delivery.driver.id%>">
+      <%=delivery.driver.name%></a></td>
       <td><%=delivery.id%></td>
-      <td>|</td>
       <td><%=delivery.time%></td>
       <td><form class="" action="/deliveries/<%=delivery.id%>/edit" method="get">
         <input type="submit" value="EDIT">
       </form></td>
-      <td>|</td>
       <td><form class="" action="/deliveries/<%=delivery.id%>/delete" method="get">
         <input type="submit" value="DELETE">
       </form></td>
