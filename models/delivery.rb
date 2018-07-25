@@ -85,7 +85,6 @@ class Delivery
     return year_deliveries
   end
 
-
   def self.month_all(chosen_month, chosen_year)
     all_deliveries = Delivery.all()
     month_deliveries = []
@@ -145,5 +144,29 @@ class Delivery
       results = SqlRunner.run( sql, values )
       return results.map { |delivery| Delivery.new( delivery ) }
     end
+
+    def self.year_all_search(chosen_year, query)
+      deliveries = Delivery.search(query)
+      year_deliveries = []
+      for delivery in deliveries
+        if Date.parse(delivery.time).year == chosen_year
+          year_deliveries.push(delivery)
+        end
+      end
+      return year_deliveries
+    end
+
+    def self.month_all_search(chosen_month, chosen_year, query)
+      deliveries = Delivery.search(query)
+      month_deliveries = []
+      for delivery in deliveries
+        if Date.parse(delivery.time).mon == chosen_month && Date.parse(delivery.time).year == chosen_year.to_i
+          month_deliveries.push(delivery)
+        end
+      end
+      return month_deliveries
+    end
+
+
 
   end

@@ -13,9 +13,26 @@ get '/deliveries' do
   erb(:'deliveries/index')
 end
 
+# search function index
+
 post '/deliveries' do
   @deliveries = Delivery.search(params['query'])
     erb ( :'deliveries/index' )
+end
+
+# index by month
+get '/deliveries/filter/:year/:month' do
+  @month = params['month'].to_i
+  @year = params['year'].to_i
+  @deliveries = Delivery.month_all(params['month'].to_i,params['year'].to_i)
+  erb(:'deliveries/index_by_month')
+end
+
+post '/deliveries/filter/:year/:month' do
+  @month = params['month'].to_i
+  @year = params['year'].to_i
+  @deliveries = Delivery.month_all_search(params['month'].to_i,params['year'].to_i,params['query'])
+  erb(:'deliveries/index_by_month')
 end
 
 # index by year
@@ -25,11 +42,12 @@ get '/deliveries/filter/:year' do
   erb(:'deliveries/index_by_year')
 end
 
-# index by month
-get '/deliveries/filter/:year/:month' do
+# search function index by year
+
+post '/deliveries/filter/:year' do
   @year = params['year'].to_i
-  @deliveries = Delivery.month_all(params['month'].to_i,params['year'].to_i)
-  erb(:'deliveries/index_by_month')
+  @deliveries = Delivery.year_all_search(params['year'].to_i,params['query'])
+  erb(:'deliveries/index_by_year')
 end
 
 # new

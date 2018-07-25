@@ -26,8 +26,17 @@
   <th><a href="/deliveries/filter/<%=@year%>/11">Nov</a></th>
   <th><a href="/deliveries/filter/<%=@year%>/12">Dec</a></th>
 </table>
-<h4><a href="/deliveries/filter/<%=@year%>">Go Back</a>
+<h4><a href="/deliveries/filter/<%=@year%>/<%=@month%>">Go Back</a>
 <br/>
+<form method="POST" action="/deliveries/filter/<%=@year%>/<%=@month%>">
+<div class="search">
+  <p>Search for...</p>
+   <input id="query" name="query" type="text" placeholder="Search...">
+  <button type="submit">
+    <i class="fa fa-search">...</i>
+  </button>
+</div>
+</form>
 <br/>
 <table>
   <%for delivery in @deliveries%>
