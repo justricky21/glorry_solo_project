@@ -1,13 +1,12 @@
 <h1>Customers</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
+<a href='/customers/new'><button type"button" class="add_new">
+  Add customer
+</button></a>
+
+<ul class="elements">
   <%for customer in @customers%>
-  <tr>
-    <td><a href="/customers/<%=customer.id%>"><%= customer.company_name %></a></td>
-  </tr>
+  <li><td><a href="/customers/<%=customer.id%>"><%= customer.company_name %></a></td></li>
+  <br/>
   <%end%>
-</table>
-<a href='/customers/new'>Add customer</a></li>
+</ul>

@@ -1,56 +1,56 @@
 <h1>Deliveries</h1>
 
-<a href='/deliveries/new'>Add delivery</a></li>
+<a href='/deliveries/new'><button type"button" class="add_new">
+  Add delivery</button>
+</a>
 
 <h2>Filter by year:</h2>
 
 <table>
   <th><a href="/deliveries">All</a></th>
   <%for year in Delivery.unique_years%>
-    <th><a href='/deliveries/filter/<%=year%>'><%=year%></th>
-  <%end%>
-</table>
+  <th><a href='/deliveries/filter/<%=year%>'><%=year%></th>
+    <%end%>
+  </table>
 
-<form method="POST" action="/deliveries">
-<div class="search">
-  <p>Search for...</p>
-   <input id="query" name="query" type="text" placeholder="Search...">
-  <button type="submit">
-    <i class="fa fa-search">...</i>
-  </button>
-</div>
-</form>
-<br/>
+  <form method="POST" action="/deliveries">
+    <div class="search">
+      <p>Search for...</p>
+      <input id="query" name="query" type="text" placeholder="Search...">
+      <button type="submit">
+        <i class="fa fa-search">...</i>
+      </button>
+    </div>
+  </form>
+  <br/>
 <table>
-  <tr>
-    <th>Content</th>
-    <th>Customer</th>
-    <th>Driver</th>
-    <th>Voucher</th>
-    <th>Issue Date</th>
+    <tr>
+      <th>Content</th>
+      <th>Customer</th>
+      <th>Driver</th>
+      <th>Voucher</th>
+      <th>Issue Date</th>
     <th></th>
     <th></th>
   </tr>
-<div class="results">
-  <%for delivery in @deliveries%>
+  <div class="results">
+<%for delivery in @deliveries%>
   <table>
-
-    <tr>
-      <td><%=delivery.contents%></td>
-      <td><a href="customers/<%=delivery.customer.id%>">
-      <%=delivery.customer.company_name%></a></td>
-      <td><a href="drivers/<%=delivery.driver.id%>">
+  <tr>
+    <td><%=delivery.contents%></td>
+    <td><a href="customers/<%=delivery.customer.id%>">
+    <%=delivery.customer.company_name%></a></td>
+    <td><a href="drivers/<%=delivery.driver.id%>">
       <%=delivery.driver.name%></a></td>
-      <td><%=delivery.id%></td>
-      <td><%=delivery.time%></td>
-      <td><form class="" action="/deliveries/<%=delivery.id%>/edit" method="get">
-        <input type="submit" value="EDIT"></td>
-      <td><form class="" action="/deliveries/<%=delivery.id%>/confirmation" method="get">
-        <input type="submit" value="DELETE">
-      </form></td>
-    </tr>
-    </table>
-    <%end%>
-</div>
-
+    <td><%=delivery.id%></td>
+    <td><%=delivery.time%></td>
+    <td><form class="" action="/deliveries/<%=delivery.id%>/edit" method="get">
+      <input type="submit" value="EDIT"></form></td>
+    <td><form class="" action="/deliveries/<%=delivery.id%>/confirmation" method="get">
+      <input type="submit" value="DELETE">
+    </form></td>
+  </tr>
   </table>
+</table>
+    <%end%>
+  </div>

@@ -1,6 +1,8 @@
 <h1>Deliveries</h1>
 
-<a href='/deliveries/new'>Add delivery</a></li>
+<a href='/deliveries/new'><button type"button" class="add_new">
+  Add delivery</button>
+</a>
 
 <h2>Filter by year:</h2>
 
@@ -39,15 +41,17 @@
 </form>
 <br/>
 <table>
-  <%for delivery in @deliveries%>
-  <table>
     <tr>
       <th>Content</th>
       <th>Customer</th>
       <th>Driver</th>
       <th>Voucher</th>
       <th>Issue Date</th>
+      <th></th>
+      <th></th>
     </tr>
+    <%for delivery in @deliveries%>
+    <table>
     <tr>
       <td><%=delivery.contents%></td>
       <td><a href="customers/<%=delivery.customer.id%>">

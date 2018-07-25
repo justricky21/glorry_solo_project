@@ -2,17 +2,13 @@
 <table>
   <tr>
     <th>Content</th>
-    <th></th>
     <th>Customer</th>
-    <th></th>
     <th>Driver</th>
   </tr>
   <tr>
     <td><%=@delivery.contents%></td>
-    <td>|</td>
     <td><%=@delivery.customer.company_name%></a></td>
-    <td>|</td>
-    <td><td><%=@delivery.driver.name%></a></td></td>
+    <td><%=@delivery.driver.name%></a></td>
   </tr>
 </table>
 <p>The voucher number is <%=@delivery.id%>.</p>

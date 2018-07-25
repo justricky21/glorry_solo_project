@@ -1,0 +1,87 @@
+body {
+  background-color: #FFEEE4;
+  font-family: garamond;
+  color: black;
+}
+
+.index {
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table, th, td {
+  border: 1px solid #F17F42;
+  text-align: center;
+}
+
+input[type=submit]{
+  font-size: 14px;
+  background-color: #CE6D39;
+  border: 1px solid #F17F42;
+  padding: 12px 26px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+
+}
+
+input[type=submit]:hover{
+  background-color: #DC9570;
+}
+
+.navbar ul {
+  list-style-type: none;
+}
+
+.navbar button{
+  font-size: 14px;
+  background-color: #CE6D39;
+  border: 1px solid #F17F42;
+  padding: 4px 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.add_new{
+  font-size: 14px;
+  background-color: #CE6D39;
+  border: 1px solid #F17F42;
+  padding: 4px 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.add_new:hover{
+  background-color: #DC9570;
+}
+
+.navbar button:hover{
+  background-color: #DC9570;
+}
+
+.navbar li {
+
+}
+
+.navbar {
+  text-align: center;
+}
+
+.navbar li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.elements {
+  list-style-type: none;
+}

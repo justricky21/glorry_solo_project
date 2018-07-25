@@ -13,13 +13,6 @@ get '/deliveries' do
   erb(:'deliveries/index')
 end
 
-# search function index
-
-post '/deliveries' do
-  @deliveries = Delivery.search(params['query'])
-    erb ( :'deliveries/index' )
-end
-
 # index by month
 get '/deliveries/filter/:year/:month' do
   @month = params['month'].to_i
@@ -63,6 +56,13 @@ post '/deliveries/?' do
   @delivery = Delivery.new(params)
   @delivery.save()
   erb(:'deliveries/create')
+end
+
+# search function index
+
+post '/deliveries' do
+  @deliveries = Delivery.search(params['query'])
+    erb ( :'deliveries/index' )
 end
 
 # edit

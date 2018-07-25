@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <link rel="stylesheet" href="/styles/master.css">
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+<head>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="/images/truckie.png" />
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <div class="navbar">
     <nav>
       <ul>
         <li>
-          <a href="/deliveries">Deliveries</a>
+          <a href="/deliveries"><button type="button">Deliveries</button></a>
         </li>
         <li>
-          <a href="/drivers">Drivers</a>
+          <a href="/drivers"><button type="button">Drivers</button></a>
         </li>
         <li>
-          <a href="/customers">Customers</a>
+          <a href="/customers"><button type="button">Customers</button></a>
         </li>
       </ul>
     </nav>
-    <%=yield%>
-  </body>
+  </div>
+  <%=yield%>
+</body>
 </html>
