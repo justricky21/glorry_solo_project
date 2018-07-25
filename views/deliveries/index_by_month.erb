@@ -30,7 +30,7 @@
 </table>
 <h4><a href="/deliveries/filter/<%=@year%>/<%=@month%>">Go Back</a>
 <br/>
-<form method="POST" action="/deliveries/filter/<%=@year%>/<%=@month%>">
+<form method="GET" action="/deliveries/filter/<%=@year%>/<%=@month%>">
 <div class="search">
   <p>Search for...</p>
    <input id="query" name="query" type="text" placeholder="Search...">
@@ -47,8 +47,7 @@
       <th>Driver</th>
       <th>Voucher</th>
       <th>Issue Date</th>
-      <th></th>
-      <th></th>
+      <th>Actions</th>
     </tr>
     <%for delivery in @deliveries%>
     <table>
@@ -60,10 +59,10 @@
       <%=delivery.driver.name%></a></td>
       <td><%=delivery.id%></td>
       <td><%=delivery.time%></td>
-      <td><form class="" action="/deliveries/<%=delivery.id%>/edit" method="get">
+      <td><form class="button-inline" action="/deliveries/<%=delivery.id%>/edit" method="get">
         <input type="submit" value="EDIT">
-      </form></td>
-      <td><form class="" action="/deliveries/<%=delivery.id%>/delete" method="get">
+      </form>
+      <form class="button-inline" action="/deliveries/<%=delivery.id%>/delete" method="get">
         <input type="submit" value="DELETE">
       </form></td>
     </tr>

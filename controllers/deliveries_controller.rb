@@ -8,8 +8,9 @@ also_reload 'models/*'
 
 # restful routes
 # index
-get '/deliveries' do
+get '/deliveries/?' do
   @deliveries = Delivery.all
+  @deliveries = Delivery.search(params['query']) if params['query']
   erb(:'deliveries/index')
 end
 
@@ -18,13 +19,7 @@ get '/deliveries/filter/:year/:month' do
   @month = params['month'].to_i
   @year = params['year'].to_i
   @deliveries = Delivery.month_all(params['month'].to_i,params['year'].to_i)
-  erb(:'deliveries/index_by_month')
-end
-
-post '/deliveries/filter/:year/:month' do
-  @month = params['month'].to_i
-  @year = params['year'].to_i
-  @deliveries = Delivery.month_all_search(params['month'].to_i,params['year'].to_i,params['query'])
+  @deliveries = Delivery.month_all_search(params['month'].to_i,params['year'].to_i,params['query']) if params['query']
   erb(:'deliveries/index_by_month')
 end
 
@@ -32,14 +27,7 @@ end
 get '/deliveries/filter/:year' do
   @year = params['year'].to_i
   @deliveries = Delivery.year_all(params['year'].to_i)
-  erb(:'deliveries/index_by_year')
-end
-
-# search function index by year
-
-post '/deliveries/filter/:year' do
-  @year = params['year'].to_i
-  @deliveries = Delivery.year_all_search(params['year'].to_i,params['query'])
+  @deliveries = Delivery.year_all_search(params['year'].to_i,params['query']) if params['query']
   erb(:'deliveries/index_by_year')
 end
 
@@ -58,12 +46,7 @@ post '/deliveries/?' do
   erb(:'deliveries/create')
 end
 
-# search function index
 
-post '/deliveries' do
-  @deliveries = Delivery.search(params['query'])
-    erb ( :'deliveries/index' )
-end
 
 # edit
 get '/deliveries/:id/edit' do

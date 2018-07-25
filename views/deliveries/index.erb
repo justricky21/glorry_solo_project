@@ -13,7 +13,7 @@
     <%end%>
   </table>
 
-  <form method="POST" action="/deliveries">
+  <form method="GET" action="/deliveries">
     <div class="search">
       <p>Search for...</p>
       <input id="query" name="query" type="text" placeholder="Search...">
@@ -23,19 +23,18 @@
     </div>
   </form>
   <br/>
-<table>
+  <table>
     <tr>
       <th>Content</th>
       <th>Customer</th>
       <th>Driver</th>
       <th>Voucher</th>
       <th>Issue Date</th>
-    <th></th>
-    <th></th>
+      <th>Actions</th>
   </tr>
-  <div class="results">
+</table>
 <%for delivery in @deliveries%>
-  <table>
+<table>
   <tr>
     <td><%=delivery.contents%></td>
     <td><a href="customers/<%=delivery.customer.id%>">
@@ -44,13 +43,13 @@
       <%=delivery.driver.name%></a></td>
     <td><%=delivery.id%></td>
     <td><%=delivery.time%></td>
-    <td><form class="" action="/deliveries/<%=delivery.id%>/edit" method="get">
-      <input type="submit" value="EDIT"></form></td>
-    <td><form class="" action="/deliveries/<%=delivery.id%>/confirmation" method="get">
-      <input type="submit" value="DELETE">
-    </form></td>
+    <td><form class="button-inline" action="/deliveries/<%=delivery.id%>/edit" method="get">
+      <input type="submit" value="EDIT"></form>
+    <form class="button-inline" action="/deliveries/<%=delivery.id%>/confirmation" method="get">
+      <input type="submit" value="DELETE"></td>
+      </form>
   </tr>
-  </table>
 </table>
+
+
     <%end%>
-  </div>

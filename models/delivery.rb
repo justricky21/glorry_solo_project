@@ -138,9 +138,10 @@ class Delivery
     end
 
     def self.search(query)
+      query = query.downcase
       sql = "SELECT * FROM deliveries
       WHERE lower(deliveries.contents) LIKE $1"
-      values = ['%'+query.downcase+'%']
+      values = ['%'+query+'%']
       results = SqlRunner.run( sql, values )
       return results.map { |delivery| Delivery.new( delivery ) }
     end
