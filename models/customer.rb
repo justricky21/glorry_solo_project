@@ -15,9 +15,9 @@ class Customer
   end
 
   def save()
-    @company_name = "Missing name" if @company_name = ""
-    @contact_name = "Missing name" if @contact_name = ""
-    @address = "Missing address" if @address = ""
+    @company_name = "Missing name" if @company_name == ""
+    @contact_name = "Missing name" if @contact_name == ""
+    @address = "Missing address" if @address == ""
     sql = "INSERT INTO customers
     (
       company_name, contact_name, phone_number, address, email, archived
@@ -69,9 +69,9 @@ class Customer
   end
 
   def update()
-    @company_name = "Missing name" if @company_name = ""
-    @contact_name = "Missing name" if @contact_name = ""
-    @address = "Missing address" if @address = ""
+    @company_name = "Missing name" if @company_name == ""
+    @contact_name = "Missing name" if @contact_name == ""
+    @address = "Missing address" if @address == ""
     sql = "UPDATE customers
     SET
     (

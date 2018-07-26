@@ -61,8 +61,7 @@ customer1 = Customer.new('company_name' => 'Tesco plc',
 'phone_number' => '102938472',
 'address' => 'Tesco Distribution Centre, Carnegie Rd, Livingston EH54 8TB',
 'email' => 'laura.tate@tesco.co.uk',
-'archived' => 'f'
-)
+'archived' => 'f')
 
 customer2 = Customer.new('company_name' => 'J Sainsburys plc',
 'contact_name' => 'Mary Bennett, Ms',
@@ -99,51 +98,149 @@ customer6 = Customer.new('company_name' => 'CodeClan',
 'email' => 'melinda.matthews@codeclan.co.uk',
 'archived' => 'f')
 
-customer7 = Customer.new('company_name' => '',
+customer7 = Customer.new('company_name' => 'Waitrose',
 'contact_name' => 'Mikaela House',
-'address' => '',
+'address' => 'Waitrose, 38 Comely Bank Rd, Edinburgh EH4 1AW',
 'phone_number' => '109008900',
-'email' => '',
+'email' => 'mikaela.house@waitrose.co.uk',
 'archived' => 'f')
 
-customer8 = Customer.new('company_name' => '',
+customer8 = Customer.new('company_name' => 'Morrisons',
 'contact_name' => 'Jesse Downs',
-'address' => '',
+'address' => 'Co-op, Clayknowes Rd, Stoneyhill, Musselburgh EH21 6UW',
 'phone_number' => '103663098',
-'email' => '',
+'email' => 'jesse.downs@morrisons.co.uk',
 'archived' => 'f')
 
-customer9 = Customer.new('company_name' => '',
+customer9 = Customer.new('company_name' => 'Aldi',
 'contact_name' => 'Niko Pierce',
-'address' => '',
+'address' => 'Aldi Regional Office and Distribution Centre, Pottishaw Rd, Bathgate EH48 2FB',
 'phone_number' => '108032575',
-'email' => '',
+'email' => 'niko.pierce@aldi.co.uk',
 'archived' => 'f')
 
-customer10 = Customer.new('company_name' => '',
+customer10 = Customer.new('company_name' => 'Brittish Petroleum',
 'contact_name' => 'Zhane Richardson',
-'address' => '',
+'address' => 'BP, Barclay Pl, Edinburgh EH10 4DG',
 'phone_number' => '104905883',
-'email' => '',
+'email' => 'zhane.richardson@bp.co.uk',
 'archived' => 'f')
 
 
 delivery1 = Delivery.new('customer_id' => 1,
   'driver_id' => 1,
-  'contents' => 'Some cotton balls',
+  'contents' => 'Foodstuffs',
   'time' => Date.parse('2001-02-03')
 )
 
-delivery2 = Delivery.new('customer_id' => 2,
+delivery2 = Delivery.new('customer_id' => 1,
 'driver_id' => 2,
-'contents' => 'One ton of rubber ducks',
+'contents' => 'Foodstuffs and toiletries',
 'time' => Date.parse('2011-02-03')
 )
-delivery3 = Delivery.new('customer_id' => 3,
+
+delivery3 = Delivery.new('customer_id' => 2,
 'driver_id' => 3,
-'contents' => 'Two tons of rubber ducks',
-'time' => Date.parse('2014-02-03')
+'contents' => 'Foodstuffs',
+'time' => Date.parse('2014-10-03')
 )
+
+delivery4 = Delivery.new('customer_id' => 2,
+'driver_id' => 4,
+'contents' => 'Beverages',
+'time' => Date.parse('2014-05-03')
+)
+
+delivery5 = Delivery.new('customer_id' => 3,
+'driver_id' => 5,
+'contents' => 'Fishes',
+'time' => Date.parse('2013-05-03')
+)
+
+delivery6 = Delivery.new('customer_id' => 3,
+'driver_id' => 6,
+'contents' => 'Batteries. HAZARDOUS',
+'time' => Date.parse('2013-02-03')
+)
+
+delivery7 = Delivery.new('customer_id' => 4,
+'driver_id' => 7,
+'contents' => 'Shoes, trousers',
+'time' => Date.parse('2004-10-03')
+)
+
+delivery8 = Delivery.new('customer_id' => 4,
+'driver_id' => 8,
+'contents' => 'Shirts, trousers',
+'time' => Date.parse('2004-02-03')
+)
+
+delivery9 = Delivery.new('customer_id' => 5,
+'driver_id' => 9,
+'contents' => 'Shoes, trousers',
+'time' => Date.parse('2002-02-03')
+)
+
+delivery10 = Delivery.new('customer_id' => 6,
+'driver_id' => 10,
+'contents' => 'Computer equipment, cables',
+'time' => Date.parse('2015-02-03')
+)
+
+delivery11 = Delivery.new('customer_id' => 6,
+'driver_id' => 1,
+'contents' => 'Construction equipment, rubber ducks',
+'time' => Date.parse('2015-03-03')
+)
+
+delivery12 = Delivery.new('customer_id' => 7,
+'driver_id' => 2,
+'contents' => 'Gourmet foodstuffs',
+'time' => Date.parse('2016-02-03')
+)
+
+delivery13 = Delivery.new('customer_id' => 7,
+'driver_id' => 3,
+'contents' => 'Fancy diner cutlery',
+'time' => Date.parse('2003-02-03')
+)
+
+delivery14 = Delivery.new('customer_id' => 8,
+'driver_id' => 4,
+'contents' => 'Foodstuffs, batteries',
+'time' => Date.parse('2007-02-03')
+)
+
+delivery15 = Delivery.new('customer_id' => 8,
+'driver_id' => 5,
+'contents' => 'Fridges',
+'time' => Date.parse('2008-02-03')
+)
+
+delivery16 = Delivery.new('customer_id' => 9,
+'driver_id' => 6,
+'contents' => 'Foodstuffs',
+'time' => Date.parse('2017-02-03')
+)
+
+delivery17 = Delivery.new('customer_id' => 9,
+'driver_id' => 7,
+'contents' => 'Fridge',
+'time' => Date.parse('1999-02-03')
+)
+
+delivery18 = Delivery.new('customer_id' => 10,
+'driver_id' => 9,
+'contents' => 'Petrol',
+'time' => Date.parse('2001-02-03')
+)
+
+delivery19 = Delivery.new('customer_id' => 10,
+'driver_id' => 10,
+'contents' => 'Petrol',
+'time' => Date.parse('1998-02-03')
+)
+
 
 driver1.save
 driver2.save
@@ -184,4 +281,3 @@ delivery16.save_for_seed
 delivery17.save_for_seed
 delivery18.save_for_seed
 delivery19.save_for_seed
-delivery20.save_for_seed

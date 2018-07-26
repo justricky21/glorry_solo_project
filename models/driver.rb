@@ -13,9 +13,9 @@ class Driver
     end
 
   def save()
-    @name = "Missing name" if @name = ""
-    @lorry= "Missing model" if @lorry = ""
-    @lorry_plate = "Missing plate" if @lorry_plate = ""
+    @name = "Missing name" if @name == ""
+    @lorry= "Missing model" if @lorry == ""
+    @lorry_plate = "Missing plate" if @lorry_plate == ""
     sql = "INSERT INTO drivers
     (
       name, lorry, lorry_plate, archived
@@ -66,9 +66,9 @@ class Driver
   end
 
   def update()
-    @name = "Missing name" if @name = ""
-    @lorry= "Missing model" if @lorry = ""
-    @lorry_plate = "Missing plate" if @lorry_plate = ""
+    @name = "Missing name" if @name == ""
+    @lorry= "Missing model" if @lorry == ""
+    @lorry_plate = "Missing plate" if @lorry_plate == ""
     sql = "UPDATE drivers
     SET
     (
