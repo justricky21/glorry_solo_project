@@ -9,7 +9,7 @@
 <table>
   <th><a href="/deliveries">All</a></th>
   <%for year in Delivery.unique_years%>
-    <th><a href='/deliveries/filter/<%=year%>'><%=year%></th>
+  <th><a href='/deliveries/filter/<%=year%>'><%=year%></th>
   <%end%>
 </table>
 
@@ -31,13 +31,13 @@
 <h4><a href="/deliveries/filter/<%=@year%>/<%=@month%>">Go Back</a>
 <br/>
 <form method="GET" action="/deliveries/filter/<%=@year%>/<%=@month%>">
-<div class="search">
-  <p>Search for...</p>
-   <input id="query" name="query" type="text" placeholder="Search...">
-  <button type="submit">
-    <i class="fa fa-search">...</i>
-  </button>
-</div>
+  <div class="search">
+    <h4>Search in Content...</h4>
+      <input id="query" name="query" type="text" placeholder="Search...">
+    <button type="submit">
+      <i class="fa fa-search">...</i>
+    </button>
+  </div>
 </form>
 <br/>
 <table>
@@ -52,19 +52,19 @@
     <%for delivery in @deliveries%>
     <table>
     <tr>
-      <td><%=delivery.contents%></td>
-      <td><a href="customers/<%=delivery.customer.id%>">
+    <td><%=delivery.contents%></td>
+    <td><a href="customers/<%=delivery.customer.id%>">
       <%=delivery.customer.company_name%></a></td>
-      <td><a href="drivers/<%=delivery.driver.id%>">
+    <td><a href="drivers/<%=delivery.driver.id%>">
       <%=delivery.driver.name%></a></td>
-      <td><%=delivery.id%></td>
-      <td><%=delivery.time%></td>
-      <td><form class="button-inline" action="/deliveries/<%=delivery.id%>/edit" method="get">
-        <input type="submit" value="EDIT">
-      </form>
-      <form class="button-inline" action="/deliveries/<%=delivery.id%>/delete" method="get">
-        <input type="submit" value="DELETE">
-      </form></td>
+    <td><%=delivery.id%></td>
+    <td><%=delivery.time%></td>
+    <td><form class="button-inline" action="/deliveries/<%=delivery.id%>/edit" method="get">
+      <input type="submit" value="EDIT">
+    </form>
+    <form class="button-inline" action="/deliveries/<%=delivery.id%>/delete" method="get">
+      <input type="submit" value="DELETE">
+    </form></td>
     </tr>
     </table>
     <%end%>
