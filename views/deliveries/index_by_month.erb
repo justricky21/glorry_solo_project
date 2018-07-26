@@ -28,7 +28,7 @@
   <th><a href="/deliveries/filter/<%=@year%>/11">Nov</a></th>
   <th><a href="/deliveries/filter/<%=@year%>/12">Dec</a></th>
 </table>
-<h4><a href="/deliveries/filter/<%=@year%>/<%=@month%>">Go Back</a>
+<h4><a href="/deliveries/filter/<%=@year%>">Go Back</a></h4>
 <br/>
 <form method="GET" action="/deliveries/filter/<%=@year%>/<%=@month%>">
   <div class="search">
@@ -40,6 +40,7 @@
   </div>
 </form>
 <br/>
+<div class="results">
 <table>
     <tr>
       <th>Content</th>
@@ -69,3 +70,4 @@
     </table>
     <%end%>
   </table>
+</div>

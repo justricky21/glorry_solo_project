@@ -223,22 +223,10 @@ delivery16 = Delivery.new('customer_id' => 9,
 'time' => Date.parse('2017-02-03')
 )
 
-delivery17 = Delivery.new('customer_id' => 9,
-'driver_id' => 7,
-'contents' => 'Fridge',
-'time' => Date.parse('1999-02-03')
-)
-
 delivery18 = Delivery.new('customer_id' => 10,
 'driver_id' => 9,
 'contents' => 'Petrol',
 'time' => Date.parse('2001-02-03')
-)
-
-delivery19 = Delivery.new('customer_id' => 10,
-'driver_id' => 10,
-'contents' => 'Petrol',
-'time' => Date.parse('1998-02-03')
 )
 
 
@@ -278,6 +266,4 @@ delivery13.save_for_seed
 delivery14.save_for_seed
 delivery15.save_for_seed
 delivery16.save_for_seed
-delivery17.save_for_seed
 delivery18.save_for_seed
-delivery19.save_for_seed
