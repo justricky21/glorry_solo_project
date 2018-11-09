@@ -1,6 +1,6 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' ) if development?
-require( 'pry-byebug' )
+require( 'pry-byebug' ) if development?
 require_relative( '../models/driver.rb' )
 also_reload 'models/*'
 # restful routes
