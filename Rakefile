@@ -1,3 +1,3 @@
-task db:seed do
+task :seed do
     ruby "db/seeds.rb"
   end
