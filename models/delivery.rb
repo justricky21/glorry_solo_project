@@ -59,6 +59,14 @@ class Delivery
     return Customer.new( results.first )
   end
 
+  def self.latest_five
+    sql = "SELECT * FROM deliveries
+    ORDER BY time DESC
+    limit 5"
+    results = SqlRunner.run(sql)
+    return results.map {|delivery| Delivery.new(delivery)}
+  end
+
   def self.all()
     sql = "SELECT * FROM deliveries"
     results = SqlRunner.run( sql )

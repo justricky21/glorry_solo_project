@@ -1,4 +1,35 @@
 <div class='index'>
   <h1>Welcome to Glorry</h1>
   <h3>Please, make your selection above.</h3>
+  <br/>
+  <h3>Latest deliveries...</h3>
 </div>
+
+<table>
+    <tr>
+      <th>Content</th>
+      <th>Customer</th>
+      <th>Driver</th>
+      <th>Voucher</th>
+      <th>Issue Date</th>
+      <th>Actions</th>
+  </tr>
+</table>
+<%for delivery in @deliveries%>
+  <table>
+    <tr>
+      <td><%=delivery.contents%></td>
+      <td><a href="customers/<%=delivery.customer.id%>">
+      <%=delivery.customer.company_name%></a></td>
+      <td><a href="drivers/<%=delivery.driver.id%>">
+        <%=delivery.driver.name%></a></td>
+      <td><%=delivery.id%></td>
+      <td><%=delivery.time%></td>
+      <td><form class="button-inline" action="/deliveries/<%=delivery.id%>/edit" method="get">
+        <input type="submit" value="EDIT"></form>
+      <form class="button-inline" action="/deliveries/<%=delivery.id%>/confirmation" method="get">
+        <input type="submit" value="DELETE"></td>
+        </form>
+    </tr>
+  </table>
+<%end%>
